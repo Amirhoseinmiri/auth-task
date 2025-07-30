@@ -1,0 +1,269 @@
+.dashboardContainer {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+  .dashboardHeader {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+
+    .headerContent {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .welcomeTitle {
+        font-size: 1.875rem;
+        font-weight: 700;
+        color: #1f2937;
+        margin: 0;
+      }
+
+      .logoutButton {
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  .dashboardContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+
+    .userCard {
+      background: #ffffff;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+
+      .userAvatar {
+        flex-shrink: 0;
+
+        .avatarImage {
+          width: 5rem;
+          height: 5rem;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 3px solid #3b82f6;
+        }
+      }
+
+      .userInfo {
+        .userName {
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: #1f2937;
+          margin: 0 0 0.5rem 0;
+          text-transform: capitalize;
+        }
+
+        .userEmail {
+          font-size: 1rem;
+          color: #6b7280;
+          margin: 0;
+        }
+      }
+    }
+
+    .infoGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+
+      .infoCard {
+        background: #ffffff;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .infoTitle {
+          font-size: 1.25rem;
+          font-weight: 600;
+          color: #1f2937;
+          margin: 0 0 1rem 0;
+          padding-bottom: 0.5rem;
+          border-bottom: 2px solid #e5e7eb;
+        }
+
+        .infoContent {
+          .infoItem {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f3f4f6;
+
+            &:last-child {
+              border-bottom: none;
+            }
+
+            .infoLabel {
+              font-weight: 500;
+              color: #6b7280;
+              flex-shrink: 0;
+              margin-right: 1rem;
+            }
+
+            .infoValue {
+              color: #1f2937;
+              text-align: right;
+              word-break: break-word;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .loadingContainer {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+    .spinner {
+      width: 2rem;
+      height: 2rem;
+      border: 3px solid #e5e7eb;
+      border-top: 3px solid #3b82f6;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    p {
+      color: #6b7280;
+      font-size: 1rem;
+      margin: 0;
+    }
+  }
+}
+
+// Keyframes for spinner animation
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .dashboardContainer {
+    .dashboardHeader {
+      .headerContent {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+
+        .welcomeTitle {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    .dashboardContent {
+      padding: 1rem;
+
+      .userCard {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+
+        .userInfo {
+          .userName {
+            font-size: 1.25rem;
+          }
+        }
+      }
+
+      .infoGrid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+
+        .infoCard {
+          padding: 1rem;
+
+          .infoTitle {
+            font-size: 1.125rem;
+          }
+
+          .infoContent {
+            .infoItem {
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 0.25rem;
+
+              .infoLabel {
+                margin-right: 0;
+              }
+
+              .infoValue {
+                text-align: left;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboardContainer {
+    .dashboardContent {
+      .userCard {
+        .userAvatar {
+          .avatarImage {
+            width: 4rem;
+            height: 4rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Animation for cards entrance
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.userCard,
+.infoCard {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.infoCard {
+  &:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  &:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+}

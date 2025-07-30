@@ -1,0 +1,153 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  // Variants
+  &.primary {
+    background-color: #3b82f6;
+    color: #ffffff;
+    border-color: #3b82f6;
+
+    &:hover:not(:disabled) {
+      background-color: #2563eb;
+      border-color: #2563eb;
+    }
+
+    &:active:not(:disabled) {
+      background-color: #1d4ed8;
+      border-color: #1d4ed8;
+    }
+  }
+
+  &.secondary {
+    background-color: #6b7280;
+    color: #ffffff;
+    border-color: #6b7280;
+
+    &:hover:not(:disabled) {
+      background-color: #4b5563;
+      border-color: #4b5563;
+    }
+
+    &:active:not(:disabled) {
+      background-color: #374151;
+      border-color: #374151;
+    }
+  }
+
+  &.outline {
+    background-color: transparent;
+    color: #3b82f6;
+    border-color: #3b82f6;
+
+    &:hover:not(:disabled) {
+      background-color: #3b82f6;
+      color: #ffffff;
+    }
+
+    &:active:not(:disabled) {
+      background-color: #2563eb;
+      border-color: #2563eb;
+    }
+  }
+
+  // Sizes
+  &.sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  &.md {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  &.lg {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  // Loading state
+  &.loading {
+    pointer-events: none;
+  }
+
+  .loadingText {
+    opacity: 0.7;
+  }
+
+  .spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .spinnerIcon {
+    width: 1rem;
+    height: 1rem;
+    animation: spin 1s linear infinite;
+  }
+
+  .spinnerCircle {
+    opacity: 0.25;
+  }
+
+  .spinnerPath {
+    opacity: 0.75;
+  }
+}
+
+// Keyframes for spinner animation
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .button {
+    &.sm {
+      padding: 0.375rem 0.75rem;
+      font-size: 0.8125rem;
+    }
+
+    &.md {
+      padding: 0.625rem 1.25rem;
+      font-size: 0.875rem;
+    }
+
+    &.lg {
+      padding: 0.875rem 1.75rem;
+      font-size: 1rem;
+    }
+  }
+}
